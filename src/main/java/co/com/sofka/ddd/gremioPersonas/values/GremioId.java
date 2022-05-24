@@ -4,5 +4,15 @@ import co.com.sofka.domain.generic.Identity;
 
 public class GremioId extends Identity {
 
-    public static GremioId of
+    public GremioId(){
+
+    }
+
+    private GremioId(String id){
+        super(id);
+    }
+
+    public static GremioId of(String id) {
+        return new GremioId(id);
+    }
 }
