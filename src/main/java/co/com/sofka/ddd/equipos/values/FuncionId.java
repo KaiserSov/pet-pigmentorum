@@ -1,4 +1,7 @@
 package co.com.sofka.ddd.equipos.values;
 
-public class FuncionId {
+import co.com.sofka.domain.generic.Identity;
+
+public class FuncionId extends Identity {
 }
+

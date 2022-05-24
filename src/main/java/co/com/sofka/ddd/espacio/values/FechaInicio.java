@@ -1,4 +1,10 @@
 package co.com.sofka.ddd.espacio.values;
 
-public class FechaInicio {
+import com.sun.beans.decoder.ValueObject;
+
+public class FechaInicio extends ValueObject<Integer> {
+    public Integer value(){
+        return null;
+    }
 }
+

@@ -1,4 +1,7 @@
 package co.com.sofka.ddd.espacio.values;
 
-public class ProcesosId {
+import co.com.sofka.domain.generic.Identity;
+
+public class ProsesosId extends Identity {
 }
+

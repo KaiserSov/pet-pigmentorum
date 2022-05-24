@@ -1,4 +1,10 @@
 package co.com.sofka.ddd.espacio.values;
 
-public class CantidadEspacios {
+import com.sun.beans.decoder.ValueObject;
+
+public class CantidadEspacios implements ValueObject<Integer> {
+
+    public Integer value(){
+        return null;
+    }
 }

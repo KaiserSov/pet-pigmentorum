@@ -1,4 +1,9 @@
 package co.com.sofka.ddd.gremioPersonas.values;
 
-public class CantidadPersonas {
+import com.sun.beans.decoder.ValueObject;
+
+public class CantidadPersonas extends ValueObject<Integer> {
+    public Integer value(){
+        return null;
+    }
 }

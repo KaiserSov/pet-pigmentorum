@@ -1,4 +1,10 @@
 package co.com.sofka.ddd.espacio.values;
 
-public class Descripcion {
+import com.sun.beans.decoder.ValueObject;
+
+public class Descripcion implements ValueObject<String> {
+
+    public String value(){
+        return null;
+    }
 }

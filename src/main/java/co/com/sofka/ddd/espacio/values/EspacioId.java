@@ -1,4 +1,6 @@
 package co.com.sofka.ddd.espacio.values;
 
-public class EspacioId {
+import co.com.sofka.domain.generic.Identity;
+
+public class EspacioId extends Identity {
 }

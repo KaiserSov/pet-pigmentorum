@@ -1,4 +1,6 @@
 package co.com.sofka.ddd.espacio.values;
 
-public class FaseId {
+import co.com.sofka.domain.generic.Identity;
+
+public class FaseId extends Identity {
 }
