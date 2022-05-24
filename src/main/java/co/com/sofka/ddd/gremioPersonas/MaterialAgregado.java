@@ -5,19 +5,25 @@ import co.com.sofka.ddd.equipos.values.Descripcion;
 import co.com.sofka.ddd.equipos.values.FuncionId;
 import co.com.sofka.ddd.gremioPersonas.events.FuncionAgregada;
 import co.com.sofka.ddd.gremioPersonas.values.CantidadPersonas;
+import co.com.sofka.ddd.gremioPersonas.values.GremioId;
 import co.com.sofka.ddd.gremioPersonas.values.MaterialId;
 import co.com.sofka.ddd.gremioPersonas.values.Nombre;
-import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.ddd.gremioPersonas.values.GremioId;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-public class GremioPersonas extends AggregateEvent<GremioId> {
-    protected Nombre nombre;
-    protected Set<Funcion> funciones;
-    protected Set<Material> materiales;
+public class MaterialAgregado extends DomainEvent {
+    private final Nombre nombre;
+
+    public FuncionAgregada(Nombre nombre) {
+        super("sofka.funcion.materialAgregado");
+        this.nombre = nombre;
+    }
+
+    public Nombre getNombre(){
+        return nombre;
+    }
 
     public GremioPersonas(GremioId entityId, Nombre) {
         super(entityId);
