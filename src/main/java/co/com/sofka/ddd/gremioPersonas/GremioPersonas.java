@@ -3,13 +3,18 @@ package co.com.sofka.ddd.gremioPersonas;
 import co.com.sofka.ddd.equipos.values.Caracteristicas;
 import co.com.sofka.ddd.equipos.values.Descripcion;
 import co.com.sofka.ddd.equipos.values.FuncionId;
+import co.com.sofka.ddd.gremioPersonas.events.CantidadDePersonasActualizada;
 import co.com.sofka.ddd.gremioPersonas.events.FuncionAgregada;
+import co.com.sofka.ddd.gremioPersonas.events.GremioActualizado;
+import co.com.sofka.ddd.gremioPersonas.events.MaterialAgregado;
 import co.com.sofka.ddd.gremioPersonas.values.CantidadPersonas;
 import co.com.sofka.ddd.gremioPersonas.values.MaterialId;
 import co.com.sofka.ddd.gremioPersonas.values.Nombre;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.ddd.gremioPersonas.values.GremioId;
 
+import java.security.DomainCombiner;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -22,6 +27,17 @@ public class GremioPersonas extends AggregateEvent<GremioId> {
     public GremioPersonas(GremioId entityId, Nombre) {
         super(entityId);
         appendChange(new GremioPersonas(nombre)).apply();
+    }
+
+    private GremioPersonas(GremioId entityId){
+        super(entityId);
+        subscribe(new GremioChange(this));
+    }
+
+    public static GremioPersonas from (GremioId gremioId, List<DomainEvent> events){
+        var gremioPersona = new GremioPersonas(gremioId);
+        events.forEach(gremioPersona::applyEvent);
+        return gremioPersona;
     }
 
     public void actualizarGremio(GremioId entityId){
