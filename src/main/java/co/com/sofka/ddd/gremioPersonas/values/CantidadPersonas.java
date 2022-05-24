@@ -11,7 +11,7 @@ public class CantidadPersonas extends ValueObject<Integer> {
     public CantidadPersonas(Integer value) {
         this.value = Objects.requireNonNull(value);
         if (this.value.isBlank()){
-            throw new IllegalArgumentException("No puedes estar sin personas trabajando");
+            throw new IllegalArgumentException("No puedes estar sin personas trabajando :)");
         }
     }
 
